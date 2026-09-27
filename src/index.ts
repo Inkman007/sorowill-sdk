@@ -81,8 +81,14 @@ export type {
   WalletConnectSessionStore,
 } from './walletConnect';
 
-export { ReadCache } from './cache';
-export type { ReadCacheOptions } from './cache';
+export {
+  IndexedDbCachePersistenceAdapter,
+  LocalStorageCachePersistenceAdapter,
+  MemoryCachePersistenceAdapter,
+  ReadCache,
+  createReadCacheKey,
+} from './cache';
+export type { CachePersistenceAdapter, PersistedCacheEntry, ReadCacheOptions } from './cache';
 
 export { unsubscribeFromWillEvents } from './events';
 export type {
@@ -109,7 +115,9 @@ export {
   GuardianCooldownActiveError,
   InsufficientBalanceError,
   InvalidContractIdError,
+  InvalidDayCountError,
   InvalidGuardianThresholdError,
+  InvalidPaginationOptionsError,
   InvalidPercentageError,
   InvalidPercentagesError,
   InvalidPeriodError,
@@ -153,6 +161,8 @@ export {
   mapContractError,
   UnsupportedBatchSizeError,
 } from './errors';
+
+export { RpcEndpointPool, isRetryableRpcConnectionError } from './rpc';
 
 export { RequestQueue, RequestPriority } from './requestQueue';
 export type { RequestQueueOptions } from './requestQueue';
